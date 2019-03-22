@@ -21,12 +21,14 @@ public class IndexController {
 
 	@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
 	public String index() {
+		System.out.println("main 가져오기 성공");
 		return "main";
 	}// index end
 
 	@RequestMapping(value = "/ajax/main", method = RequestMethod.GET)
 	@ResponseBody
 	public List<User> ajaxMain() {
+		System.out.println("json list 성공");
 		return userService.selectList();
 	}//ajaxMain end
 
