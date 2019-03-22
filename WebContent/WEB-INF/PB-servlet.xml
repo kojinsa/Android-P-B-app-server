@@ -37,7 +37,7 @@
 		</mvc:interceptors> -->
 
 	<!-- Controller -->
-	<bean id="indexController" class="controller.IndexController" />
+	<bean id="indexController" p:userService-ref="userService" class="controller.IndexController" />
 	<!-- 모델이 필요없는 인터널리소스뷰 -->
 
 	<!-- MultipartResovler -->

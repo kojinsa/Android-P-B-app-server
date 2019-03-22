@@ -12,18 +12,17 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- AspectJ 자동 프록시 -->
-	<aop:aspectj-autoproxy/>
-	
+	<aop:aspectj-autoproxy />
+
 	<!-- 트랜잭션을 어노테이션으로 설정 -->
-	<tx:annotation-driven/>
+	<tx:annotation-driven />
 
 	<jee:jndi-lookup id="dataSource"
 		jndi-name="java:comp/env/oraclexe" />
 
 	<!-- 트랜잭션 매니저 설정 -->
-	<bean id="transactionManager" 
-	p:dataSource-ref="dataSource"
-	class="org.springframework.jdbc.datasource.DataSourceTransactionManager" />
+	<bean id="transactionManager" p:dataSource-ref="dataSource"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager" />
 
 	<bean id="sqlSessionFactory" p:dataSource-ref="dataSource"
 		p:configLocation="WEB-INF/mybatis-config.xml"
@@ -33,13 +32,12 @@
 		class="org.mybatis.spring.SqlSessionTemplate" />
 
 	<!-- DAO -->
-	
-	
+	<bean id="userDAO" p:session-ref="sqlSession" class="dao.UserDAOTmpl" />
 	<!-- service -->
-	
+	<bean id="userService" p:userDAO-ref="userDAO" class="service.UserServiceTmpl"/>
 	<!-- util -->
-
-	<!-- aop 설정 --> 
-	<!-- <bean class="com.mujea.malgum.aop.LogAspect"/>  -->
+	
+	<!-- aop 설정 -->
+	<!-- <bean class="com.mujea.malgum.aop.LogAspect"/> -->
 
 </beans>
