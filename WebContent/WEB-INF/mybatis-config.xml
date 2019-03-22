@@ -10,13 +10,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 
 	<!--알리아스 설정 -->
+<!-- 		<typeAlias type="vo.PageVO" alias="PageVO" /> -->
 	<typeAliases>
-		<typeAlias type="vo.PageVO" alias="PageVO" />
+		<typeAlias type="vo.User" alias="User" />
 	</typeAliases>
 
 	<!--맵퍼 설정 -->
+<!-- 		<mapper resource="mapper/first.xml" /> -->
 	<mappers>
-		<mapper resource="mapper/first.xml"/>
+		<mapper resource="mapper/user.xml" />
 	</mappers>
 
 </configuration>
